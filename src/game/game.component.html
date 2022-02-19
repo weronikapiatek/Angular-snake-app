@@ -1,0 +1,65 @@
+<div id="game-render" *ngIf="renderGame">
+
+  <header>
+    <h1>Hello, {{playerName}}</h1>
+    <p>your email:  {{playerEmail}}</p>
+    <p>your best score: {{highScore}}</p>
+  </header>
+
+
+  <ngx-snake #game
+    (foodEaten)="onGrow()"
+    (gameOver)="onGameOver()">
+  </ngx-snake>
+
+
+<table class="scoreBoard">
+<tr>
+<div>
+  <td>
+    <div>
+      <label>Score</label>
+      <p>{{currentScore}}</p>
+    </div>
+  </td>
+  <td>
+    <label>Time played</label>
+    <p>{{timePlayedSec}}</p>
+  </td>
+</div>
+<div class="button" style="float: left;">
+  <button (click)="exitGame()">EXIT GAME</button>
+</div>
+<td></td>
+</tr>
+</table>
+
+<table class="controls">
+<tr>
+    <td><button (click)="game.actionStart()">Start (Space)</button></td>
+    <td><button (click)="game.actionStop()">Stop (Space)</button></td>
+    <td><button (click)="this.resetGame()">Reset</button></td>
+    <td></td>
+</tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr>
+    <td></td>
+    <td><button (click)="game.actionUp()">Move Up (arrow Up)</button></td>
+</tr>
+<tr>
+    <td><button (click)="game.actionLeft()">Move Left (arrow Left)</button></td>
+    <td></td>
+    <td><button (click)="game.actionRight()">Move Right (arrow Right)</button></td>
+
+</tr>
+<tr>
+    <td></td>
+    <td><button (click)="game.actionDown()">Move Down (arrow Down)</button></td>
+</tr>
+<tr style="height: 20px">
+    <td></td>
+</tr>
+</table>
+</div>

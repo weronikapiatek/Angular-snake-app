@@ -1,0 +1,32 @@
+
+<game-component
+  [renderGame]="!toggleScreen"
+  [playerName]="outputName"
+  [playerEmail]="outputEmail"
+  (exitScoreEmitter)="exitGameWithLastScore($event)">
+</game-component>
+
+<div id="app-root" *ngIf="toggleScreen">
+<div id="innerCenter">
+    <div>
+      <img src="../assets/img/cartoon-snake.png" alt="cartoon-snake" width="160" height="160"/>
+      <h2 style="font-family:'Times New Roman', Times, serif" style="color:#1d961d">Witaj w mojej grze</h2>
+    </div>
+    <form #playerInput="ngForm" (ngSubmit)="onSubmit(playerInput)" novalidate >
+      <input type="text" id="name" name="name" class="form-control" required minlength="3" [(ngModel)]="playerName" #name="ngModel" placeholder="name">
+      <input type="email" id=email name="email" class="form-control" required minlength="6" [(ngModel)]="playerEmail" #email="ngModel" [email]="true" placeholder="email">
+      <button>Play</button>
+    </form>
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+      <div *ngIf="name.errors?.['minlength']" style="color:#e0095bbd">
+        Name must be at least 3 characters long
+      </div>
+    </div>
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+      <div *ngIf="email.errors?.['minlength']" style="color:#e0095bbd">
+        E-mail must be at least 6 characters long (also include @ and a dot)
+      </div>
+    </div>
+  </div>
+</div>
+
