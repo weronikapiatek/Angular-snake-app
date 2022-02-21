@@ -1,40 +1,44 @@
-<div id="game-render" *ngIf="renderGame">
+<div id="game-render" *ngIf="renderGame" img src="../assets/img/cartoon-snake.png" alt="cartoon-snake" width="160" height="160" class="center">
 
-  <header>
-    <h1>Hello, {{playerName}}</h1>
+
+
+  <header id="center">
+    <h1 >Hello, {{playerName}}</h1>
     <p>your email:  {{playerEmail}}</p>
     <p>your best score: {{highScore}}</p>
   </header>
 
 
-  <ngx-snake #game
+  <ngx-snake #game class="center"
     (foodEaten)="onGrow()"
     (gameOver)="onGameOver()">
   </ngx-snake>
 
 
-<table class="scoreBoard">
+<table class="scoreBoard" class="center">
 <tr>
 <div>
   <td>
     <div>
-      <label>Score</label>
+      <p>Score</p>
       <p>{{currentScore}}</p>
     </div>
   </td>
   <td>
-    <label>Time played</label>
+    <div>
+    <p>Time played<p>
     <p>{{timePlayedSec}}</p>
+    </div>
   </td>
 </div>
-<div class="button" style="float: left;">
+<div class="button" id="center">
   <button (click)="exitGame()">EXIT GAME</button>
 </div>
 <td></td>
 </tr>
 </table>
 
-<table class="controls">
+<table class="controls" class="center">
 <tr>
     <td><button (click)="game.actionStart()">Start (Space)</button></td>
     <td><button (click)="game.actionStop()">Stop (Space)</button></td>

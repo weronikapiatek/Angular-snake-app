@@ -9,12 +9,12 @@
 <div id="app-root" *ngIf="toggleScreen">
 <div id="innerCenter">
     <div>
-      <img src="../assets/img/cartoon-snake.png" alt="cartoon-snake" width="160" height="160"/>
+      <img src="../assets/img/cartoon-snake.png" alt="cartoon-snake" width="160" height="160" class="center"/>
       <h2 style="font-family:'Times New Roman', Times, serif" style="color:#1d961d">Witaj w mojej grze</h2>
     </div>
     <form #playerInput="ngForm" (ngSubmit)="onSubmit(playerInput)" novalidate >
-      <input type="text" id="name" name="name" class="form-control" required minlength="3" [(ngModel)]="playerName" #name="ngModel" placeholder="name">
-      <input type="email" id=email name="email" class="form-control" required minlength="6" [(ngModel)]="playerEmail" #email="ngModel" [email]="true" placeholder="email">
+      <input type="text" id="name" name="name" class="form-control" required minlength="3" [(ngModel)]="playerName" #name="ngModel" placeholder="name" class="center">
+      <input type="email" id=email name="email" class="form-control" required minlength="6" [(ngModel)]="playerEmail" #email="ngModel" [email]="true" placeholder="email" class="center">
       <button>Play</button>
     </form>
     <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
